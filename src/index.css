@@ -1,13 +1,575 @@
+/* Existing styles */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* Home Page styles */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #0066ff;
+  color: white;
+  text-align: center;
+}
+
+.header-text {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.support-text {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.wallet-connect-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wallet-connect-button {
+  background-color: white;
+  color: #0066ff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.wallet-connect-button:hover {
+  background-color: #e6e6e6;
+}
+
+/* Search Page styles */
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #0066ff;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 10px;
+}
+
+.header-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.search-section {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+.search-label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.search-input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.filter-section {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+.filter-label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.filter-options div {
+  width: 48%;
+  margin-bottom: 10px;
+}
+
+.more-options {
+  cursor: pointer;
+  margin-bottom: 30px;
+  text-decoration: underline;
+}
+
+.search-submit-button {
+  background-color: white;
+  color: #0066ff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-submit-button:hover {
+  background-color: #e6e6e6;
+}
+
+/* Add this at the end of index.css */
+
+/* Profile Page styles */
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.profile-actions {
+  display: flex;
+  align-items: center;
+}
+
+.header-button {
+  background: none;
+  border: none;
+  color: #0066ff;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.header-icon {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.profile-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 10px;
+}
+
+.profile-info h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.profile-info p {
+  font-size: 14px;
+  color: #666;
+}
+
+.profile-section,
+.donation-section,
+.history-section,
+.did-section {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section h2,
+.donation-section h2,
+.history-section h2,
+.did-section h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.profile-section p,
+.donation-section p,
+.history-section p,
+.recent-donation p {
+  font-size: 14px;
+  color: #333;
+}
+
+.more-link {
+  display: block;
+  font-size: 14px;
+  color: #0066ff;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.did-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.did-item {
+  background-color: #0066ff;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.wallet-connect-button {
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.wallet-connect-button:hover {
+  background-color: #0057e7;
+}
+
+/* Add this at the end of index.css */
+
+/* Search Results Page styles */
+
+.search-results-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.header-text {
+  font-size: 18px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.header-button {
+  background: none;
+  border: none;
+  color: #0066ff;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.header-icon {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.sort-options {
+  width: 100%;
+  text-align: right;
+  margin: 10px 0;
+}
+
+.sort-link {
+  font-size: 14px;
+  color: #0066ff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.results-list {
+  width: 100%;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.result-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 10px;
+}
+
+.result-info h1 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.result-info p {
+  font-size: 14px;
+  color: #333;
+}
+
+.did-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.did-item {
+  background-color: #0066ff;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.selected-filters {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.filter-button {
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background-color: #0057e7;
+}
+
+/* Add this at the end of index.css */
+
+/* Search Results Page styles */
+
+.search-results-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.header-text {
+  font-size: 18px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.header-button {
+  background: none;
+  border: none;
+  color: #0066ff;
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.header-icon {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.sort-options {
+  width: 100%;
+  text-align: right;
+  margin: 10px 0;
+}
+
+.sort-link {
+  font-size: 14px;
+  color: #0066ff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.results-list {
+  width: 100%;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.result-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 10px;
+}
+
+.result-info h1 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.result-info p {
+  font-size: 14px;
+  color: #333;
+}
+
+.did-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.did-item {
+  background-color: #0066ff;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.selected-filters {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.filter-button {
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background-color: #0057e7;
 }
