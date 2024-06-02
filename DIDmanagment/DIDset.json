@@ -1,0 +1,25 @@
+{
+  "Account": "rp4vJob3KgqqrhBNUbWs5U4PGKgdgyGVmu",
+  "TransactionType": "DIDSet",
+  "URI": "https://example.edu/credentials/3732",
+  "DIDDocument": {
+    "@context": "https://www.w3.org/2019/did/v1",
+    "id": "did:xrpl:rp4vJob3KgqqrhBNUbWs5U4PGKgdgyGVmu",
+    "publicKey": [
+      {
+        "id": "did:xrpl:rp4vJob3KgqqrhBNUbWs5U4PGKgdgyGVmu#keys-1",
+        "type": "EcdsaSecp256k1VerificationKey2019",
+        "controller": "did:xrpl:rp4vJob3KgqqrhBNUbWs5U4PGKgdgyGVmu",
+        "publicKeyHex": "04f42987b7faee8b95e2c3a3345224f00e00dfc67ba882..."
+      }
+    ],
+    "authentication": ["did:xrpl:rp4vJob3KgqqrhBNUbWs5U4PGKgdgyGVmu#keys-1"]
+  },
+  "Data": {
+    "degree": {
+      "type": "BachelorDegree",
+      "name": "Bachelor of Science and Arts",
+      "university": "Tokyo Crypto University"
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css"; // Ensure you import the CSS file
 import HomePage from "./pages/HomePage";
 import SearchPage from "./pages/SearchPage";
-import ProfilePage from "./components/ProfilePage";
+// import ProfilePage from "./components/ProfilePage";
 import SearchResultsPage from "./pages/SearchResultsPage"; // Import the SearchResultsPage
 
 const { Xumm } = require("xumm");
@@ -16,21 +16,21 @@ const App = () => {
     // Dummy data for illustration
     {
       name: "rhyYNdxAyFQ7s2K...",
-      occupation: "職業や組織名（例：学生、NPO運営）",
+      occupation: "職業や組織名（例:学生、NPO運営）",
       introduction:
         "東京大学でアラビア語を学んでいる学生です。現在、奨学金を受けながら学問に励んでいますが、将来のために更なる支援を必要としています。",
       didList: ["東京大学在籍", "アラビア語専攻中"],
     },
     {
       name: "rhT4mHk6PxQ8zNw...",
-      occupation: "職業や組織名（例：学生、NPO運営）",
+      occupation: "職業や組織名（例:学生、NPO運営）",
       introduction:
         "東京大学でアラビア語を専攻している女子学生です。現在奨学金を受けて学業に励んでいますが、さらなる知識と経験を求めて中東への留学を希望しています。",
       didList: ["東京大学在籍", "アラビア語専攻中"],
     },
     {
       name: "rh3D8yEIKrL5sGx...",
-      occupation: "職業や組織名（例：学生、NPO運営）",
+      occupation: "職業や組織名（例:学生、NPO運営）",
       introduction:
         "東京大学でアラビア語を専攻している学生です。奨学金を受けながら学業と部活動を両立し、充実した大学生活を送っています。",
       didList: ["東京大学在籍", "アラビア語専攻中"],
@@ -50,10 +50,10 @@ const App = () => {
           path="/search"
           element={<SearchPage disconnect={disconnect} />}
         />
-        <Route
+        {/* <Route
           path="/profile/:userId"
           element={<ProfilePage disconnect={disconnect} />}
-        />
+        /> */}
         <Route
           path="/search-results"
           element={
