@@ -1,56 +1,85 @@
 "use client";
 
 import React, { useState } from "react";
-import { useUser } from "@/components/UserProvider";
 import { convertStringToHex } from "xrpl";
-import { createPayload } from "@/lib/payload";
+import { Xumm } from "xumm";
+import "../index.css";
 
-export const DIDSetComponent = () => {
-  const { xumm, user } = useUser();
+const xumm = new Xumm("9e14cd6e-166c-4f70-9f59-f7e5d4d3cf0e");
+
+export const DidSet = () => {
   const [fileContent, setFileContent] = useState("");
   const [status, setStatus] = useState("");
+  const [account, setAccount] = useState("");
 
   const handleFileChange = (event) => {
     const fileReader = new FileReader();
     fileReader.readAsText(event.target.files[0], "UTF-8");
-    fileReader.onload = (e) => {
-      setFileContent(e.target.result);
-    };
+    fileReader.onload = (e) => setFileContent(e.target.result);
+  };
+
+  const connectWallet = async () => {
+    try {
+      await xumm.authorize();
+      const account = await xumm.user.account;
+      setAccount(account);
+    } catch (error) {
+      console.error("Failed to connect wallet", error);
+    }
   };
 
   const handleDIDSet = async () => {
-    if (user.account && fileContent) {
-      const uri = convertStringToHex(fileContent);
-      const payload = await createPayload({
-        TransactionType: "DIDSet",
-        Account: user.account,
-        URI: uri,
+    if (!account) {
+      setStatus("Wallet is not connected.");
+      return;
+    }
+
+    try {
+      const jsonData = JSON.parse(fileContent);
+      const didDocument = convertStringToHex(JSON.stringify(jsonData));
+
+      const payload = await xumm.payload.create({
+        txjson: {
+          TransactionType: "DIDSet",
+          Account: account,
+          DIDDocument: didDocument,
+        },
+        options: {
+          force_network: "TESTNET", // Using TESTNET
+        },
+        custom_meta: {
+          identifier: "did-set-transaction",
+          instruction:
+            "Please sign this DIDSet transaction to update your DID.",
+        },
       });
 
-      try {
-        const response = await xumm.submit(payload);
-        setStatus(`Transaction submitted: ${response}`);
-      } catch (error) {
-        console.error("Error submitting DIDSet transaction:", error);
-        setStatus("Failed to submit DIDSet transaction.");
-      }
-    } else {
-      setStatus("No account or file content available.");
+      xumm.xapp.openSignRequest(payload);
+
+      setStatus("Payload created, waiting for user to sign the transaction.");
+    } catch (error) {
+      console.error("Error submitting DIDSet transaction:", error);
+      setStatus("Failed to submit DIDSet transaction.");
     }
   };
 
   return (
-    <div className="DIDSetComponent">
+    <div>
+      <button onClick={connectWallet} className="btn btn-primary">
+        Connect Wallet
+      </button>
+      <p></p>
+      {account && <p>Connected account: {account}</p>}
       <input
         type="file"
         onChange={handleFileChange}
         className="input input-bordered"
       />
-      {fileContent && (
-        <pre className="p-2 m-2 bg-base-200 rounded">{fileContent}</pre>
-      )}
-      <button onClick={handleDIDSet} className="btn btn-primary mt-2">
-        Set DID
+      {fileContent && <pre>{fileContent}</pre>}
+      <p>※JSON sampleはuni-json.jsを参照</p>
+
+      <button onClick={handleDIDSet} className="btn btn-primary">
+        Set DID（エラー中…）
       </button>
       <p>{status}</p>
     </div>

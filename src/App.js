@@ -1,17 +1,15 @@
+import { XummSdk } from "xumm-sdk";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css"; // Ensure you import the CSS file
 import HomePage from "./pages/HomePage";
 import SearchPage from "./pages/SearchPage";
 // import ProfilePage from "./components/ProfilePage";
-import SearchResultsPage from "./pages/SearchResultsPage"; // Import the SearchResultsPage
-
-const { Xumm } = require("xumm");
-
-const xumm = new Xumm("2ebc29cd-4062-47b5-98d7-8ca2a1e633a3");
+import SearchResultsPage from "./pages/SearchResultsPage";
+import DidRegisterPage from "./pages/DidRegister"; // ファイル名とエクスポート名が正しいことを確認
+import Header from "./components/Header";
 
 const App = () => {
-  const [account, setAccount] = useState(undefined);
   const [searchResults, setSearchResults] = useState([
     // Dummy data for illustration
     {
@@ -37,32 +35,18 @@ const App = () => {
     },
   ]); // This should be replaced with actual search results
 
-  const disconnect = async () => {
-    await xumm.logout();
-    setAccount(undefined);
-  };
-
   return (
     <Router>
+      <Header />
       <Routes>
         <Route exact path="/" element={<HomePage />} />
-        <Route
-          path="/search"
-          element={<SearchPage disconnect={disconnect} />}
-        />
-        {/* <Route
-          path="/profile/:userId"
-          element={<ProfilePage disconnect={disconnect} />}
-        /> */}
+        <Route path="/search" element={<SearchPage />} />
+        {/* <Route path="/profile/:userId" element={<ProfilePage />} /> */}
         <Route
           path="/search-results"
-          element={
-            <SearchResultsPage
-              results={searchResults}
-              disconnect={disconnect}
-            />
-          }
+          element={<SearchResultsPage results={searchResults} />}
         />
+        <Route path="/register" element={<DidRegisterPage />} />
       </Routes>
     </Router>
   );
