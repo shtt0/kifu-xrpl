@@ -1,27 +1,24 @@
-LIGHTNING KIFU NETWORK
+# LIGHTNING KIFU NETWORK
+
 Welcome to the Lightning Kifu Network!
 
-Product Link: Lightning Kifu Network on Akindo
-ローカル実行
-プロジェクトをクローンします:
+- **Product Link:** [Lightning Kifu Network on Akindo](https://app.akindo.io/communities/DrWepAj4duRMdm3M/products/La2vVz39VujdOr3A)
 
-bash
-コードをコピーする
-git clone https://github.com/shtt0/kifu-xrpl.git
-cd kifu-xrpl
-必要なパッケージをインストールします:
+## ローカル実行
 
-コードをコピーする
-npm install
-ローカルサーバーを起動します:
+1. プロジェクトをクローンします:
+   git clone https://github.com/shtt0/kifu-xrpl.git
+   cd kifu-xrpl
 
-arduino
-コードをコピーする
-npm run dev
-ブラウザで以下のリンクにアクセスします:
+2. 必要なパッケージをインストールします:
+   npm install
 
-arduino
-コードをコピーする
-http://localhost:3000/
-注意事項
-DIDset のフローを理解するために、ドキュメントを参照しながら作業を進めています。
+3. ローカルサーバーを起動します:
+   npm run dev
+
+4. ブラウザで以下のリンクにアクセスします:
+   http://localhost:3000/
+
+## 注意事項
+
+- DIDset のフローを理解するために、ドキュメントを参照しながら作業を進めています。
